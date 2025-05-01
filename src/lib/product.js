@@ -79,4 +79,12 @@ export const thisMonthProduct = [
         star:"4",
         img: "https://i.pinimg.com/736x/fa/7b/8b/fa7b8b223e5c9a6c0faedf2f04b9d4de.jpg"
     },
+    {
+        productName: "Neo Vintage GG Supreme bag",
+        price: "895",
+        actualPrice: "999",
+        rating: "546",
+        star:"4",
+        img: "https://i.pinimg.com/736x/fd/ae/1f/fdae1f4374b6bc030e026fcdb009b11a.jpg"
+    },
 ]
