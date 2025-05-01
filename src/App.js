@@ -19,7 +19,7 @@ function App() {
               <Route path="/" element= {<Home/>} />
             </Route>
           </Routes>
-          <BottomNav/>
+          <BottomNav className="" />
         </Router>
       </div>
   );

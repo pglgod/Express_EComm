@@ -1,5 +1,10 @@
 
-import { MdHome, MdOutlineExplore, MdOutlinePerson } from "react-icons/md"
+import { BsSmartwatch } from "react-icons/bs"
+import { CiCamera, CiHeadphones, CiMonitor } from "react-icons/ci"
+import { GiMedicines } from "react-icons/gi"
+import { IoIosPhonePortrait } from "react-icons/io"
+import { MdHome, MdOutlineExplore, MdOutlinePerson, MdOutlineSportsCricket } from "react-icons/md"
+import { PiGameController } from "react-icons/pi"
 import { TbCategoryPlus } from "react-icons/tb"
 
 
@@ -27,7 +32,6 @@ export const nav_links = [
 
     }
 ]
-
 
 export const bottom_nav = [
     {
@@ -103,4 +107,39 @@ export const home_links = [
         path: "/grocery",
     }
 
+]
+
+export const category = [
+    {
+        name: "Phone",
+        icon: <IoIosPhonePortrait/>
+    },
+    {
+        name: "Computer",
+        icon: <CiMonitor/>
+    },
+    {
+        name: "SmartWatch",
+        icon: <BsSmartwatch/>
+    },
+    {
+        name: "Camera",
+        icon: <CiCamera/>
+    },
+    {
+        name: "HeadPhone",
+        icon: <CiHeadphones/>
+    },
+    {
+        name: "Gaming",
+        icon: <PiGameController/>
+    },
+    {
+        name: "Sports",
+        icon: <MdOutlineSportsCricket/>
+    },
+    {
+        name: "Medicine",
+        icon: <GiMedicines/>
+    },
 ]

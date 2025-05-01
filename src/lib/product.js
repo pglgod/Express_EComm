@@ -59,3 +59,24 @@ export const toDaySale = [
         img: "https://i.pinimg.com/736x/a6/a1/ad/a6a1adf917d1974881bd7428fa182c0d.jpg"
     },
 ]
+
+
+export const thisMonthProduct = [
+    {
+        productName: "Mens Corduroy Loose Jacket",
+        price: "89",
+        actualPrice: "99",
+        rating: "364",
+        star:"4",
+        img: "https://i.pinimg.com/736x/2c/a1/4c/2ca14cb4646855261a80241af3e2a9d9.jpg"
+    },
+    
+    {
+        productName: "Neo Vintage GG Supreme bag",
+        price: "895",
+        actualPrice: "999",
+        rating: "546",
+        star:"4",
+        img: "https://i.pinimg.com/736x/fa/7b/8b/fa7b8b223e5c9a6c0faedf2f04b9d4de.jpg"
+    },
+]

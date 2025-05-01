@@ -6,7 +6,8 @@ export default function BottomNav() {
     const location = useLocation();
   return (
     <>
-      <div className="   pt-3 w-full fixed  bottom-0 flex lg:hidden items-center justify-around sm:justify-center sm:gap-14 bg-slate-50 ">
+      <div className="  pt-3 w-full sticky  bottom-0 flex lg:hidden items-center justify-around sm:justify-center sm:gap-14 bg-slate-50 ">
+      {/* <div className="  pt-3 w-full fixed  bottom-0 flex lg:hidden items-center justify-around sm:justify-center sm:gap-14 bg-slate-50 "> */}
 
         {
             bottom_nav.map((e)=>{

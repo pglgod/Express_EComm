@@ -1,21 +1,23 @@
 import React, { useRef } from 'react'
-import { home_links } from '../lib/navigationLinks'
+import { category, home_links } from '../lib/navigationLinks'
 import { Link } from 'react-router-dom'
 import HomeCarousel from './CarouselCom/HomeCarousel'
-import { MdArrowBack, MdArrowForward, } from 'react-icons/md'
-import { toDaySale } from '../lib/product'
+import { MdArrowBack, MdArrowForward,  } from 'react-icons/md'
+import { thisMonthProduct, toDaySale } from '../lib/product'
+import { FaRegHeart } from 'react-icons/fa'
 
 export default function Home() {
 
-    const scrollRef = useRef(null)
+    const scrollRef1 = useRef(null)
+    const scrollRef2 = useRef(null)
 
-    const scrollToLeft = ()=>{
-        scrollRef.current.scrollLeft -= 500; 
+    const scrollToLeft1 = ()=>{
+        scrollRef1.current.scrollLeft -= 500; 
         
     }
 
-    const scrollToRight = ()=>{
-        scrollRef.current.scrollLeft += 500;
+    const scrollToRight1 = ()=>{
+        scrollRef1.current.scrollLeft += 500;
     }
 
   return (
@@ -38,7 +40,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section className=' py-6 lg:py-10 px-2 md:px-5 lg:px-24 ' >
+        <section className=' my-6 lg:my-10 px-2 md:px-5 lg:px-24 ' >
                 <div className=" flex items-center gap-3 ">
                     <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
                     <h1 className=' text-red-600 font-poppins text-lg font-semibold' >Today's</h1>
@@ -71,20 +73,23 @@ export default function Home() {
                     </div>
                     
                     <div className=" hidden  md:flex items-center gap-3">
-                            <button onClick={scrollToLeft} className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
-                            <button onClick={scrollToRight} className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
+                            <button onClick={scrollToLeft1} className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
+                            <button onClick={scrollToRight1} className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
                     </div>
                 </div>
 
-                <div ref={scrollRef}  className=" py-3 lg:py-5  w-full flex  overflow-scroll scroll-smooth ">
+                <div ref={scrollRef1}  className=" py-3 lg:py-5  w-full flex  overflow-scroll scroll-smooth ">
 
                     <div className=" flex flex-row gap-5 ">
                         {
                             toDaySale.map((e, index) =>{
                                 return(
-                                    <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
-                                        <div className=" w-full aspect-square">
+                                    <div className="  w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                        <div className=" w-full aspect-square relative">
                                             <img className=' aspect-square' src={e.img} alt="Iphone" />
+
+                                            <button className=' absolute top-3 right-3 hover:text-red-600 text-lg ' ><FaRegHeart/></button>
+
                                         </div>
                                         <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
                                             <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
@@ -109,9 +114,106 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className=" my-2 flex items-center justify-center ">
-                    <button className=' px-6 py-2 bg-red-600 text-white text-md font-poppins font-medium rounded-md ' >View All Products</button>
+                <div className=" my-2 px-3 flex items-center justify-end md:justify-center ">
+                    <button className=' md:px-6 py-1 md:py-2 border-b-2 border-red-600 md:bg-red-600 text-red-600 md:text-white text-md font-poppins font-medium md:rounded-md ' >View All Products</button>
                 </div>
+        </section>
+
+
+        <section className='my-3 lg:my-10 px-2 md:px-5 lg:px-24 ' >
+            <div className=" flex items-center gap-3 ">
+                <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
+                <h1 className=' text-red-600 font-poppins text-lg font-semibold' >Categoties</h1>
+            </div>
+
+            <div className=" md:flex items-center justify-between">
+                <h1 className=' text-xl sm:text-2xl font-poppins font-semibold' >Browse By Category</h1>
+                
+                <div className=" hidden  md:flex items-center gap-3">
+                        <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
+                        <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
+                </div>
+            </div>
+            
+            <div ref={scrollRef2}  className=" py-3 lg:py-5  w-full flex  overflow-scroll scroll-smooth ">
+
+                <div className=" flex flex-row gap-5 ">
+                    
+                    {
+                        category.map((e)=>{
+                            return (
+                                <div className=" w-44 h-36 flex flex-col items-center justify-center border bg-white hover:bg-red-600 hover:text-white border-gray-300 rounded-sm">
+                                    <p className='text-7xl'>
+                                        {e.icon}
+                                    </p>
+                                    <p className=' font-poppins text-lg font-light' >{e.name}</p>
+                                </div>
+                            )
+                        })
+                    }
+
+                    
+
+                </div>
+            </div>
+
+        </section>
+
+        
+        <section className='my-3 lg:my-10 px-2 md:px-5 lg:px-24 ' >
+            <div className=" flex items-center gap-3 ">
+                <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
+                <h1 className=' text-red-600 font-poppins text-lg font-semibold' >This Month</h1>
+            </div>
+
+            <div className=" md:flex items-center justify-between">
+                <h1 className=' text-xl sm:text-2xl font-poppins font-semibold' >Best selling Products</h1>
+                
+                <div className=" hidden  md:flex items-center gap-3">
+
+                    <button className=' px-4 py-1 rounded-sm bg-red-600 hover:bg-white hover:text-red-600 hover:border-red-600 hover:border  text-white text-md font-light font-poppins'  >View All</button>
+                    <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
+                    <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
+                </div>
+            </div>
+            
+            <div ref={scrollRef2}  className=" py-3 lg:py-5  w-full flex  overflow-scroll scroll-smooth ">
+
+                <div className=" flex flex-row gap-5 ">
+                    
+                    {
+                        thisMonthProduct.map((e)=>{
+                            return (
+                                <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                        <div className=" w-full aspect-square">
+                                            <img className=' aspect-square' src={e.img} alt="Iphone" />
+                                        </div>
+                                        <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
+                                            <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
+                                            <p className='text-sm font-poppins flex items-center gap-3' >
+                                                <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
+                                            </p>
+                                            <div className=" flex items-center gap-3 ">
+                                                <p className='flex items-center gap-1 text-yellow-600 ' >
+                                                    {
+                                                      "⭐️".repeat(Number(e.star))  
+                                                    } 
+                                                    {/* <MdStar/> */}
+                                                </p>
+                                                <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
+                                            </div>
+
+                                        </div>
+                                </div>
+                            )
+                        })
+                    }
+
+                    
+
+                </div>
+            </div>
+
         </section>
 
     </div>
