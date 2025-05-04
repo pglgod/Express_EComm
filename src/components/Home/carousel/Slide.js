@@ -24,10 +24,6 @@ export const Slide1 =  <div className=" w-full h-full flex bg-black items-center
                             </div>
                         </div>
 
-
-
-// Slide 02
-
 export const Slide2 =   <div className=" relative flex justify-center w-full h-full bg-slate-200">
                             <img className=" w-full h-full " src={require("../../../assets/img/Slide2.png")} alt="fashion" />
                             <button className=" absolute w-full h-[90%] bg-transparent " ></button>

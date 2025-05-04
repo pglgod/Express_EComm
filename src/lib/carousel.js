@@ -1,5 +1,5 @@
 // import Slide1 from "../components/CarouselCom/homeSlide/Slide1"
-import { Slide1, Slide2, Slide3, Slide4} from "../components/CarouselCom/homeSlide/Slide1"
+import { Slide1, Slide2, Slide3, } from "../components/Home/carousel/Slide"
 
 
 

@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md'
-import { carouselSlides } from '../../lib/carousel'
+import { carouselSlides } from '../../../lib/carousel'
 
 
 
-const slideData = [
-    {
-        img: "https://i.pinimg.com/736x/75/c0/30/75c0305e538c7cc446f57bb75b16a95a.jpg"
-    },
-    {
-        img: "https://i.pinimg.com/736x/49/f2/88/49f28805aeb3feb0e7a390bc4f8dbacd.jpg"
-    },
-    {
-        img:"https://i.pinimg.com/736x/bd/cf/cd/bdcfcdaf2fc9ec71d4839b849254d445.jpg"
-    }
-]
+
 
 export default function HomeCarousel() {  
 
@@ -27,6 +16,7 @@ export default function HomeCarousel() {
             // console.log(current)
         }, 5000);
         return () => clearInterval(interval);
+        // eslint-disable-next-line
     }, [ carouselSlides ]  )
     
     
@@ -42,8 +32,6 @@ export default function HomeCarousel() {
   return (
     <div className="  w-full h-full bg-slate-500 relative flex items-center justify-center">
         
-        {/* <div className=' w-10 h-10 absolute  left-0 text-3xl ' ><MdOutlineArrowLeft/></div>
-        <div className=' w-10 h-10 absolute right-0 text-3xl '   ><MdOutlineArrowRight/></div> */}
 
         <div className=" w-full h-full flex items-center scroll-smooth  overflow-x-scroll  overflow-y-hidden ">
             {

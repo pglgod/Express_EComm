@@ -24,7 +24,7 @@ export default function Navbar() {
             {
                 bottom_nav.map((e) => {
                     return (
-                        <button className={` font-poppins font-normal ${location.pathname === e.path ? "border-b border-b-black" : " border-b border-transparent "} `} >
+                        <button className={` text-md text-black hover:text-gray-700 font-medium font-poppins  ${location.pathname === e.path ? "border-b border-b-black" : " border-b border-transparent "} `} >
                             <Link to={e.path} >{e.Lable}</Link>
                         </button>
                     )

@@ -630,10 +630,6 @@ video {
   display: flex;
 }
 
-.grid{
-  display: grid;
-}
-
 .hidden{
   display: none;
 }
@@ -694,10 +690,6 @@ video {
   height: 100vh;
 }
 
-.h-96{
-  height: 24rem;
-}
-
 .w-1\/2{
   width: 50%;
 }
@@ -742,10 +734,6 @@ video {
   width: 100vw;
 }
 
-.w-auto{
-  width: auto;
-}
-
 .flex-1{
   flex: 1 1 0%;
 }
@@ -759,12 +747,12 @@ video {
   cursor: pointer;
 }
 
-.grid-cols-\[auto_auto_auto_auto\]{
-  grid-template-columns: auto auto auto auto;
+.grid-flow-row{
+  grid-auto-flow: row;
 }
 
-.grid-cols-\[auto_auto\]{
-  grid-template-columns: auto auto;
+.grid-cols-\[auto_auto_auto_auto\]{
+  grid-template-columns: auto auto auto auto;
 }
 
 .flex-row{
@@ -845,10 +833,6 @@ video {
 
 .overflow-x-scroll{
   overflow-x: scroll;
-}
-
-.overflow-y-scroll{
-  overflow-y: scroll;
 }
 
 .scroll-smooth{
@@ -1122,11 +1106,6 @@ video {
   font-size: var(--xsm);
 }
 
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .font-bold{
   font-weight: 700;
 }
@@ -1194,10 +1173,6 @@ video {
 .outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.filter{
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .no-scrollbar ::-webkit-scrollbar{
@@ -1270,16 +1245,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.hover\:text-gray-800:hover{
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-gray-700:hover{
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
-}
-
 @media (min-width: 640px){
   .sm\:ml-14{
     margin-left: 3.5rem;
@@ -1343,10 +1308,6 @@ video {
 
   .md\:w-56{
     width: 14rem;
-  }
-
-  .md\:grid-cols-\[auto_auto_auto\]{
-    grid-template-columns: auto auto auto;
   }
 
   .md\:justify-center{
@@ -1472,10 +1433,6 @@ video {
 
   .lg\:w-60{
     width: 15rem;
-  }
-
-  .lg\:grid-cols-\[auto_auto_auto_auto\]{
-    grid-template-columns: auto auto auto auto;
   }
 
   .lg\:gap-20{

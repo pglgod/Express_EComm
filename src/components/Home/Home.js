@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
-import { category, home_links } from '../lib/navigationLinks'
 import { Link } from 'react-router-dom'
-import HomeCarousel from './CarouselCom/HomeCarousel'
+import { category, home_links } from '../../lib/navigationLinks'
+import HomeCarousel from './carousel/HomeCarousel'
 import { MdArrowBack, MdArrowForward,  } from 'react-icons/md'
-import { thisMonthProduct, toDaySale } from '../lib/product'
+import { product } from '../../lib/product'
 import { FaRegHeart } from 'react-icons/fa'
 
 export default function Home() {
@@ -40,6 +40,7 @@ export default function Home() {
             </div>
         </section>
 
+                {/* ToDay Sale */}
         <section className=' my-6 lg:my-10 px-2 md:px-5 lg:px-24 ' >
                 <div className=" flex items-center gap-3 ">
                     <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
@@ -82,7 +83,8 @@ export default function Home() {
 
                     <div className=" flex flex-row gap-5 ">
                         {
-                            toDaySale.map((e, index) =>{
+                            
+                            product.filter(product => product.saleType.includes("today")).map((e, index) =>{
                                 return(
                                     <div className="  w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
                                         <div className=" w-full aspect-square relative">
@@ -119,7 +121,7 @@ export default function Home() {
                 </div>
         </section>
 
-
+                    {/* Category */}
         <section className='my-3 lg:my-10 px-2 md:px-5 lg:px-24 ' >
             <div className=" flex items-center gap-3 ">
                 <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
@@ -159,21 +161,22 @@ export default function Home() {
 
         </section>
 
-        
+                    {/* This Month */}
         <section className='my-3 lg:my-10 px-2 md:px-5 lg:px-24 ' >
             <div className=" flex items-center gap-3 ">
                 <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
                 <h1 className=' text-red-600 font-poppins text-lg font-semibold' >This Month</h1>
             </div>
 
-            <div className=" md:flex items-center justify-between">
+            <div className=" flex items-center justify-between">
                 <h1 className=' text-xl sm:text-2xl font-poppins font-semibold' >Best selling Products</h1>
                 
-                <div className=" hidden  md:flex items-center gap-3">
-
+                <div className=" flex items-center gap-3">
                     <button className=' px-4 py-1 rounded-sm bg-red-600 hover:bg-white hover:text-red-600 hover:border-red-600 hover:border  text-white text-md font-light font-poppins'  >View All</button>
-                    <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
-                    <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
+                    <div className=" hidden md:flex items-center justify-center gap-3">
+                        <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200 ' > <MdArrowBack/> </button>
+                        <button  className=' p-2 aspect-square rounded-full bg-slate-300 text-lg hover:bg-slate-200' > <MdArrowForward/> </button>
+                    </div>
                 </div>
             </div>
             
@@ -182,7 +185,7 @@ export default function Home() {
                 <div className=" flex flex-row gap-5 ">
                     
                     {
-                        thisMonthProduct.map((e)=>{
+                        product.filter(product => product.saleType.includes("this month") ).map((e)=>{
                             return (
                                 <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
                                         <div className=" w-full aspect-square">
@@ -210,6 +213,59 @@ export default function Home() {
                     }
 
                     
+
+                </div>
+            </div>
+
+        </section>
+
+
+            {/* Explore Products */}
+        <section className='my-3 lg:my-10 px-2 md:px-5 lg:px-24 ' >
+            <div className=" flex items-center gap-3 ">
+                <span className='w-5 h-8 bg-red-600 rounded-md' ></span>
+                <h1 className=' text-red-600 font-poppins text-lg font-semibold' >Our Products</h1>
+            </div>
+
+            <div className=" flex items-center justify-between">
+                <h1 className=' text-xl sm:text-2xl font-poppins font-semibold' >Explore our Products</h1>
+                
+                <div className=" flex items-center gap-3">
+                    <button className=' px-4 py-1 rounded-sm bg-red-600 hover:bg-white hover:text-red-600 hover:border-red-600 hover:border  text-white text-md font-light font-poppins'  >View All</button>
+                </div>
+            </div>
+            
+            <div  className=" py-3 lg:py-5  w-full  ">
+
+                <div className=" h-full  grid place-items-center place-content-center grid-cols-[auto_auto]  md:grid-cols-[auto_auto_auto]  lg:grid-cols-[auto_auto_auto_auto] gap-5 ">
+                    
+                    {
+                        [...product].sort(() => 0.5 - Math.random()).slice(0, 8).map((e)=>{
+                            return (
+                                <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                        <div className=" w-full aspect-square">
+                                            <img className=' aspect-square' src={e.img} alt="Iphone" />
+                                        </div>
+                                        <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
+                                            <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
+                                            <p className='text-sm font-poppins flex items-center gap-3' >
+                                                <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
+                                            </p>
+                                            <div className=" flex items-center gap-3 ">
+                                                <p className='flex items-center gap-1 text-yellow-600 ' >
+                                                    {
+                                                      "⭐️".repeat(Number(e.star))  
+                                                    } 
+                                                    {/* <MdStar/> */}
+                                                </p>
+                                                <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
+                                            </div>
+
+                                        </div>
+                                </div>
+                            )
+                        })
+                    }
 
                 </div>
             </div>
