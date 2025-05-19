@@ -1,12 +1,14 @@
 
+import "./css/app.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
+import Explore from "./components/Explore";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout";
 import Navbar from "./components/Navbar";
 import Topbar from "./components/Topbar";
-import "./css/app.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUp from "./components/user/SignUp";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout/>} >
                 <Route path="/" element= {<Home/>} />
+                <Route path="/explore" element={<Explore/>} />
+                <Route path="/signup" element={ <SignUp/> } />
               </Route>
             </Routes>
           <Footer/>  

@@ -11,13 +11,11 @@ export default function Navbar() {
   return (
     <nav className=' sticky top-0 z-50 bg-white border-b border-slate-200  '>
 
-      <div className=" px-5 md:px-16 lg:px-24 py-3 md:py-5   flex items-center justify-between">
+      <div className=" pl-1 pr-5 md:px-16 lg:px-24 py-3    flex items-center justify-between">
         
         <div className=" ">
-          <div className="  p-1 w-8 aspect-square md:hidden flex items-center justify-center text-center  rounded-full bg-black">
-            <p className='    text-white  ' >Ex.</p>
-          </div>
-          <p className=' hidden md:flex  text-xl md:text-2xl font-bold'>Exclusive</p>
+          {/* Logo */}
+          <img className=' w-32 ' src={ require('../assets/Logo/logo.png') } alt="" />
         </div>
 
         <div className=" hidden lg:flex items-center justify-center gap-6">

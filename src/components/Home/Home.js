@@ -4,7 +4,10 @@ import { category, home_links } from '../../lib/navigationLinks'
 import HomeCarousel from './carousel/HomeCarousel'
 import { MdArrowBack, MdArrowForward,  } from 'react-icons/md'
 import { product } from '../../lib/product'
-import { FaRegHeart } from 'react-icons/fa'
+import { TbTruckDelivery } from 'react-icons/tb'
+import { BiSupport } from 'react-icons/bi'
+import { LuShieldCheck } from 'react-icons/lu'
+import ProductCard from '../Product/ProductCard'
 
 export default function Home() {
 
@@ -86,30 +89,31 @@ export default function Home() {
                             
                             product.filter(product => product.saleType.includes("today")).map((e, index) =>{
                                 return(
-                                    <div className="  w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
-                                        <div className=" w-full aspect-square relative">
-                                            <img className=' aspect-square' src={e.img} alt="Iphone" />
+                                    <ProductCard productName ={ e.productName } price={e.price} actualPrice={e.actualPrice} rating={e.rating} star={e.star} img={e.img}  />
+                                    // <div className="  w-40 md:w-56 xl:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                    //     <div className=" w-full aspect-square relative">
+                                    //         <img className=' aspect-square' src={e.img} alt="Iphone" />
 
-                                            <button className=' absolute top-3 right-3 hover:text-red-600 text-lg ' ><FaRegHeart/></button>
+                                    //         <button className=' absolute top-3 right-3 hover:text-red-600 text-lg ' ><FaRegHeart/></button>
 
-                                        </div>
-                                        <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
-                                            <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
-                                            <p className='text-sm font-poppins flex items-center gap-3' >
-                                                <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
-                                            </p>
-                                            <div className=" flex items-center gap-3 ">
-                                                <p className='flex items-center gap-1 text-yellow-600 ' >
-                                                    {
-                                                      "⭐️".repeat(Number(e.star))  
-                                                    } 
-                                                    {/* <MdStar/> */}
-                                                </p>
-                                                <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
-                                            </div>
+                                    //     </div>
+                                    //     <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
+                                    //         <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
+                                    //         <p className='text-sm font-poppins flex items-center gap-3' >
+                                    //             <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
+                                    //         </p>
+                                    //         <div className=" flex items-center gap-3 ">
+                                    //             <p className='flex items-center gap-1 text-yellow-600 ' >
+                                    //                 {
+                                    //                   "⭐️".repeat(Number(e.star))  
+                                    //                 } 
+                                    //                 {/* <MdStar/> */}
+                                    //             </p>
+                                    //             <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
+                                    //         </div>
 
-                                        </div>
-                                    </div>
+                                    //     </div>
+                                    // </div>
                                 )
                             })
                         }
@@ -187,27 +191,28 @@ export default function Home() {
                     {
                         product.filter(product => product.saleType.includes("this month") ).map((e)=>{
                             return (
-                                <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
-                                        <div className=" w-full aspect-square">
-                                            <img className=' aspect-square' src={e.img} alt="Iphone" />
-                                        </div>
-                                        <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
-                                            <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
-                                            <p className='text-sm font-poppins flex items-center gap-3' >
-                                                <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
-                                            </p>
-                                            <div className=" flex items-center gap-3 ">
-                                                <p className='flex items-center gap-1 text-yellow-600 ' >
-                                                    {
-                                                      "⭐️".repeat(Number(e.star))  
-                                                    } 
-                                                    {/* <MdStar/> */}
-                                                </p>
-                                                <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
-                                            </div>
+                                    <ProductCard productName ={ e.productName } price={e.price} actualPrice={e.actualPrice} rating={e.rating} star={e.star} img={e.img}  />
+                                // <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                //         <div className=" w-full aspect-square">
+                                //             <img className=' aspect-square' src={e.img} alt="Iphone" />
+                                //         </div>
+                                //         <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
+                                //             <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
+                                //             <p className='text-sm font-poppins flex items-center gap-3' >
+                                //                 <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
+                                //             </p>
+                                //             <div className=" flex items-center gap-3 ">
+                                //                 <p className='flex items-center gap-1 text-yellow-600 ' >
+                                //                     {
+                                //                       "⭐️".repeat(Number(e.star))  
+                                //                     } 
+                                //                     {/* <MdStar/> */}
+                                //                 </p>
+                                //                 <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
+                                //             </div>
 
-                                        </div>
-                                </div>
+                                //         </div>
+                                // </div>
                             )
                         })
                     }
@@ -242,27 +247,28 @@ export default function Home() {
                     {
                         [...product].sort(() => 0.5 - Math.random()).slice(0, 8).map((e)=>{
                             return (
-                                <div className=" w-40 md:w-56 lg:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
-                                        <div className=" w-full aspect-square">
-                                            <img className=' aspect-square' src={e.img} alt="Iphone" />
-                                        </div>
-                                        <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
-                                            <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
-                                            <p className='text-sm font-poppins flex items-center gap-3' >
-                                                <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
-                                            </p>
-                                            <div className=" flex items-center gap-3 ">
-                                                <p className='flex items-center gap-1 text-yellow-600 ' >
-                                                    {
-                                                      "⭐️".repeat(Number(e.star))  
-                                                    } 
-                                                    {/* <MdStar/> */}
-                                                </p>
-                                                <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
-                                            </div>
+                                    <ProductCard productName ={ e.productName } price={e.price} actualPrice={e.actualPrice} rating={e.rating} star={e.star} img={e.img}  />
+                                // <div className=" w-40 md:w-56 xl:w-60 flex-1 h-72  md:h-[350px] bg-gray-100 rounded-md overflow-hidden cursor-pointer shadow-md ">
+                                //         <div className=" w-full aspect-square">
+                                //             <img className=' aspect-square' src={e.img} alt="Iphone" />
+                                //         </div>
+                                //         <div className=" px-2 py-2 flex flex-col items-start gap-1 ">
+                                //             <p className='text-md font-poppins ' >{e.productName.length > 30 ? e.productName.slice(0, 30) + ".." : e.productName}</p>
+                                //             <p className='text-sm font-poppins flex items-center gap-3' >
+                                //                 <span className=' text-red-600 ' >${e.price}</span> <span className='text-gray-500 relative flex items-center ' >${e.actualPrice} <span className=' absolute  w-full h-[1px] bg-gray-500 ' ></span> </span> 
+                                //             </p>
+                                //             <div className=" flex items-center gap-3 ">
+                                //                 <p className='flex items-center gap-1 text-yellow-600 ' >
+                                //                     {
+                                //                       "⭐️".repeat(Number(e.star))  
+                                //                     } 
+                                //                     {/* <MdStar/> */}
+                                //                 </p>
+                                //                 <p className='text-gray-500 font-poppins text-sm' >({e.rating})</p>
+                                //             </div>
 
-                                        </div>
-                                </div>
+                                //         </div>
+                                // </div>
                             )
                         })
                     }
@@ -270,6 +276,43 @@ export default function Home() {
                 </div>
             </div>
 
+        </section>
+
+        
+        <section className='my-10 lg:my-20 px-2 md:px-5 lg:px-24 flex items-center justify-center gap-5 md:gap-10 lg:gap-20 ' >
+            <div className=" flex flex-col justify-center items-center gap-3 ">
+                <div className="p-2 bg-[#bdbdbf] rounded-full flex items-center justify-center ">
+                    <div className="  w-12 aspect-square rounded-full bg-black text-white text-2xl flex items-center justify-center ">
+                        <TbTruckDelivery/>
+                    </div>
+                </div>
+                <div className="">
+                    <h1 className=' text-center font-poppins text-sm md:text-lg font-semibold ' >FREE AND FAST DELIVERY</h1>
+                    <p className=' text-center font-poppins text-xs md:text-sm font-light ' >Free delivery for all orders over $140</p>
+                </div>
+            </div>
+            <div className=" flex flex-col justify-center items-center gap-3 ">
+                <div className="p-2 bg-[#bdbdbf] rounded-full flex items-center justify-center ">
+                    <div className="  w-12 aspect-square rounded-full bg-black text-white text-2xl flex items-center justify-center ">
+                        <BiSupport/>
+                    </div>
+                </div>
+                <div className="">
+                    <h1 className=' text-center font-poppins text-sm md:text-lg font-semibold ' >24/7 CUSTOMER SERVICE</h1>
+                    <p className=' text-center font-poppins text-xs md:text-sm font-light ' >Friendly 24/7 customer support</p>
+                </div>
+            </div>
+            <div className=" flex flex-col justify-center items-center gap-3 ">
+                <div className="p-2 bg-[#bdbdbf] rounded-full flex items-center justify-center ">
+                    <div className="  w-12 aspect-square rounded-full bg-black text-white text-2xl flex items-center justify-center ">
+                        <LuShieldCheck/>
+                    </div>
+                </div>
+                <div className="">
+                    <h1 className=' text-center font-poppins text-sm md:text-lg font-semibold ' >MONEY BACK GUARANTEE</h1>
+                    <p className=' text-center font-poppins text-xs md:text-sm font-light ' >We return money within 30 days</p>
+                </div>
+            </div>
         </section>
 
     </div>
